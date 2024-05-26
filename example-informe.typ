@@ -2,72 +2,18 @@
 #import "template/informe.typ": *
 
 #show: informe.with(
-  titulo: "Informe 1",
-  subtitulo: "Typst",
-  tema: "Aprendiendo a usar el template",
-  departamento: "dcc",
-  autores: ("Integrante1", "Integrante2", "Integrante3"), // content o arreglo de strings
-  equipo-docente: ( // diccionario con distintos valores soportados:
-    Profesores: ("Profesor1", "Profesor2"), // arreglo de strings
-    Auxiliar: "ÚnicoAuxiliar", // un único miembro como string
-    Ayudante: [ // bloque de contenido
-      Ayudante1 \
-      Ayudante $1+1$
-    ],
+  titulo: "Reseña Académica",
+  tema: "Weapons of Math Destruction",
+  autores: "Cristian Lillo",
+  equipo-docente: (
+    Profesor: "Claudio Gutiérrez",
+    Auxiliar: "Gabriel Iturra",
   ),
-  curso: "CC4034 - Composición de Documentos",
+  curso: "CC7910 Investigación en Ciencias de la Computación",
   fechas: ( // diccionario de fechas, si la portada no soporta
-    realización: "1 de Junio de 2023",
-    entrega: "Aún en progreso"
+    entrega: "26 de mayo de 2024"
   ),
   lugar: "Santiago, Chile",
+  fuente: "New Computer Modern",
   portada: portada1, // distintos diseños diposibles (WIP)
 )
-
-#resumen[
-  #lorem(100)
-]
-
-#indice-de-contenidos()
-
-= Informes con Typst
-Parecido a lenguajes como Markdown, puedes escribir para obtener un parrafo, además puedes estilar el texto en *negrita* y _cursiva_.
-
-Con una línea en blanco entre medio comenzamos otro parrafo,
-
-== sub tema
-
-== otro sub tema
-
-= otro heading
-#lorem(1000)
-
-= otro heading
-#lorem(1000)
-
-= otro heading
-#lorem(1000)
-
-= otro heading
-#lorem(1000)
-
-= otro heading
-#lorem(1000)
-
-= otro heading
-#lorem(1000)
-
-= otro heading
-#lorem(1000)
-
-= otro heading
-#lorem(1000)
-
-= otro heading
-#lorem(1000)
-
-= otro heading
-#lorem(1000)
-
-#set heading(numbering: none)
-= Heading sin numbering
