@@ -109,12 +109,12 @@
   style(styles => { // Usamos la función "style" para acceder a los estilos actuales y medir headerHeight correctamente
     let headerHeight = measure(header, styles).height
     let headerSep = 20pt // Separación entre header y contenido
-    set page("us-letter", 
-      margin: (left: 1in, 
-        right: 1in, 
-        top: 0.5in + headerHeight + headerSep, 
-        bottom: 1in), 
-      header: header, 
+    set page("us-letter",
+      margin: (left: 1in,
+        right: 1in,
+        top: 0.5in + headerHeight + headerSep,
+        bottom: 1in),
+      header: header,
       header-ascent: headerSep)
     title
     doc

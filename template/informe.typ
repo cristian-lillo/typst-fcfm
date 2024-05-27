@@ -14,7 +14,7 @@
   base-footer: base-footer,
 ) = {
   let header = base-header[
-    #for nombre in organizacion.slice(0, 3) [#nombre \ ]
+    #for nombre in organizacion.slice(0) [#nombre \ ]
   ][
     #if logo != none {image(logo, height: 50pt)}
   ]
@@ -35,20 +35,21 @@
       }
     ]
   }
-  
+
   base-front-page((header: header))[
     #v(1fr)
     #align(center)[
       #set text(size: 25pt)
       #titulo \
       #subtitulo \
+      #set text(size: 20pt)
       #tema
     ]
     #v(1fr)
 
     #grid(columns: (1fr, auto), rows: auto)[][
       #grid(columns: 2, rows: auto, row-gutter: 10pt, column-gutter: 5pt, ..member-table-args)
-  
+
       #for (nombre, fecha) in fechas [
         Fecha de #nombre: #fecha \
       ]
@@ -103,7 +104,7 @@
       let grid-maker(structs, depth) = {
         let base = bases.at(depth, default: bases.at(bases.len() - 1, default: (type, body) => body))
         let filling = fillings.at(depth, default: fillings.at(fillings.len() - 1, default: []))
-        let v-margin = v-margins.at(depth+1, default: v-margins.at(v-margins.len() - 1, default: 0.3em)) 
+        let v-margin = v-margins.at(depth+1, default: v-margins.at(v-margins.len() - 1, default: 0.3em))
 
         let numbering-width = calc.max(0pt, ..structs.map(struct => measure(struct.numbering, styles).width)) + numbering-padding
 
@@ -143,7 +144,7 @@
           grid(columns: 1fr, row-gutter: v-margin, ..grid-args)
         })
       }
-      let v-margin = v-margins.at(0, default: v-margins.at(v-margins.len() - 1, default: 0.3em)) 
+      let v-margin = v-margins.at(0, default: v-margins.at(v-margins.len() - 1, default: 0.3em))
       grid(columns: 1fr, row-gutter: v-margin, ..grid-maker(index-structs, 0))
     })
   })
@@ -176,6 +177,5 @@
   curso,
   base-footer
 ) = {
-  set text(style: "italic")
   base-footer[#titulo][#curso]
 }
